@@ -10,13 +10,13 @@ const contactLinks = [
     href: "mailto:hamzabenrahhou3@gmail.com",
   },
   {
-    icon: <img src="/github-svgrepo-com.svg" alt="GitHub" className="w-[18px] h-[18px] invert opacity-70" />,
+    icon: <img src={`${import.meta.env.BASE_URL}github-svgrepo-com.svg`} alt="GitHub" className="w-[18px] h-[18px] invert opacity-70" />,
     label: "GitHub",
     value: "github.com/Hamza007-pro",
     href: "https://github.com/Hamza007-pro",
   },
   {
-    icon: <img src="/linkedin-svgrepo-com.svg" alt="LinkedIn" className="w-[18px] h-[18px] invert opacity-70" />,
+    icon: <img src={`${import.meta.env.BASE_URL}linkedin-svgrepo-com.svg`} alt="LinkedIn" className="w-[18px] h-[18px] invert opacity-70" />,
     label: "LinkedIn",
     value: "linkedin.com/in/hamza-benrahhou-0316aa206",
     href: "https://www.linkedin.com/in/hamza-benrahhou-0316aa206",

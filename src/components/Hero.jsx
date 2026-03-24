@@ -123,8 +123,8 @@ export default function Hero() {
         {/* Social links */}
         <motion.div {...fadeUp(0.62)} className="flex items-center justify-center gap-4 mb-14">
           {[
-            { icon: <img src="/github-svgrepo-com.svg" alt="GitHub" className="w-[18px] h-[18px] invert opacity-70" />, href: "https://github.com/Hamza007-pro", label: "GitHub" },
-            { icon: <img src="/linkedin-svgrepo-com.svg" alt="LinkedIn" className="w-[18px] h-[18px] invert opacity-70" />, href: "https://www.linkedin.com/in/hamza-benrahhou-0316aa206", label: "LinkedIn" },
+            { icon: <img src={`${import.meta.env.BASE_URL}github-svgrepo-com.svg`} alt="GitHub" className="w-[18px] h-[18px] invert opacity-70" />, href: "https://github.com/Hamza007-pro", label: "GitHub" },
+            { icon: <img src={`${import.meta.env.BASE_URL}linkedin-svgrepo-com.svg`} alt="LinkedIn" className="w-[18px] h-[18px] invert opacity-70" />, href: "https://www.linkedin.com/in/hamza-benrahhou-0316aa206", label: "LinkedIn" },
             { icon: <Mail size={18} />, href: "mailto:hamzabenrahhou3@gmail.com", label: "Email" },
           ].map(({ icon, href, label }) => (
             <motion.a

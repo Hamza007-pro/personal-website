@@ -109,7 +109,7 @@ export default function Projects() {
                     className="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-slate-400 hover:text-white transition-all"
                     aria-label="GitHub"
                   >
-                    <img src="/github-svgrepo-com.svg" alt="GitHub" className="w-[15px] h-[15px] invert opacity-70" />
+                    <img src={`${import.meta.env.BASE_URL}github-svgrepo-com.svg`} alt="GitHub" className="w-[15px] h-[15px] invert opacity-70" />
                   </a>
                   <a
                     href={project.github}
