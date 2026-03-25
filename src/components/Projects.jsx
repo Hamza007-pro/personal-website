@@ -19,7 +19,7 @@ const projects = [
     subtitle: "Airport AI Chatbot",
     description:
       "AI-powered airport assistant handling flight info, gate queries, and passenger support in real time using LangChain agents and multi-platform interfaces.",
-    tags: ["LangChain", "LangGraph", "NestJS", "React", "FastAPI"],
+    tags: ["LangChain", "LangGraph", "NestJS", "Flutter",],
     gradient: "from-cyan-500/20 to-teal-500/10",
     border: "hover:border-cyan-500/40",
     glow: "hover:shadow-cyan-500/10",

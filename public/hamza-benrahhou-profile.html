@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hamza Benrahhou — Software Engineer & Tech Entrepreneur</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --indigo: #6366f1;
+      --violet: #8b5cf6;
+      --bg: #0a0a0f;
+      --surface: #0f0f1a;
+      --border: rgba(255,255,255,0.08);
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --dim: #475569;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ── Layout ──────────────────────────────── */
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 56px 48px;
+    }
+
+    /* ── Header ──────────────────────────────── */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+
+    .header-left h1 {
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .header-left h1 span {
+      background: linear-gradient(135deg, #6366f1, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header-left .title {
+      font-size: 15px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .header-left .title strong {
+      color: var(--indigo);
+      font-weight: 600;
+    }
+
+    .header-right {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      text-align: right;
+      font-size: 12.5px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .header-right a {
+      color: var(--indigo);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .header-right a:hover { opacity: 0.8; }
+
+    .portfolio-badge {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 20px;
+      background: rgba(99,102,241,0.12);
+      border: 1px solid rgba(99,102,241,0.3);
+      color: #a78bfa;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      text-decoration: none;
+    }
+
+    /* ── Sections ────────────────────────────── */
+    .section { margin-bottom: 36px; }
+
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--indigo);
+      margin-bottom: 14px;
+    }
+
+    .section h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .section p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .section p + p { margin-top: 10px; }
+
+    .highlight { color: var(--text); font-weight: 600; }
+    .accent    { color: #a78bfa; font-weight: 600; }
+
+    /* ── Two-col grid ─────────────────────────── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    /* ── Cards ───────────────────────────────── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 18px;
+    }
+
+    .card h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .card .sub {
+      font-size: 11px;
+      color: var(--dim);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ── Tags ────────────────────────────────── */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      padding: 3px 10px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.09);
+      font-size: 11px;
+      color: var(--muted);
+      font-family: 'SF Mono', 'Fira Code', monospace;
+    }
+
+    /* ── Skill groups ────────────────────────── */
+    .skill-group { margin-bottom: 14px; }
+
+    .skill-group-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--dim);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    /* ── Timeline ────────────────────────────── */
+    .timeline-item {
+      display: flex;
+      gap: 16px;
+      padding-bottom: 20px;
+      position: relative;
+    }
+
+    .timeline-item:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 20px;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .timeline-dot {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: var(--indigo);
+      border: 2px solid var(--bg);
+      box-shadow: 0 0 0 2px rgba(99,102,241,0.3);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .timeline-content h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .timeline-content .meta {
+      font-size: 11.5px;
+      color: var(--dim);
+      margin: 2px 0 6px;
+    }
+
+    .timeline-content p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ── Vision block ────────────────────────── */
+    .vision-block {
+      background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.05));
+      border: 1px solid rgba(99,102,241,0.2);
+      border-radius: 14px;
+      padding: 24px 26px;
+    }
+
+    .vision-block blockquote {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.7;
+      font-style: italic;
+      border-left: 3px solid var(--indigo);
+      padding-left: 16px;
+      margin-bottom: 12px;
+    }
+
+    .vision-block p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── Footer ──────────────────────────────── */
+    .footer {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--dim);
+    }
+
+    .footer a { color: var(--indigo); text-decoration: none; }
+
+    /* ── Print ───────────────────────────────── */
+    @media print {
+      @page { size: A4; margin: 0; }
+      body { background: #0a0a0f !important; }
+      .page { padding: 40px 44px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── HEADER ───────────────────────────── -->
+  <header class="header">
+    <div class="header-left">
+      <h1>Hamza <span>Benrahhou</span></h1>
+      <p class="title">Software Engineer &nbsp;·&nbsp; <strong>Tech Entrepreneur</strong></p>
+      <div style="margin-top:10px;">
+        <a class="portfolio-badge" href="https://hamza007-pro.github.io/personal-website" target="_blank">
+          🌐 &nbsp;hamza007-pro.github.io/personal-website
+        </a>
+      </div>
+    </div>
+    <div class="header-right">
+      <span>📍 Marrakech, Morocco</span>
+      <a href="mailto:hamzabenrahhou3@gmail.com">hamzabenrahhou3@gmail.com</a>
+      <a href="https://github.com/Hamza007-pro" target="_blank">github.com/Hamza007-pro</a>
+      <a href="https://www.linkedin.com/in/hamza-benrahhou-0316aa206" target="_blank">linkedin.com/in/hamza-benrahhou</a>
+    </div>
+  </header>
+
+  <!-- ── STORY ────────────────────────────── -->
+  <section class="section">
+    <div class="section-label">The Story</div>
+    <p>
+      My name is <span class="highlight">Hamza Benrahhou</span>, a Software Engineer from
+      <span class="highlight">Marrakech, Morocco</span>. What began as a fascination with
+      how things work evolved into a career built on solving real problems with elegant software.
+      I hold an <span class="highlight">Engineering Degree in Computer Science & Networks</span>,
+      earned through years of hands-on building — not just studying.
+    </p>
+    <p style="margin-top:10px;">
+      Today I work as a <span class="accent">freelance Software Engineer</span>, operating at
+      the intersection of <span class="accent">enterprise software</span> and
+      <span class="accent">artificial intelligence</span>. I design and build scalable,
+      AI-powered applications for clients — from real-time passenger systems to enterprise
+      platforms. Every line of code I write is purposeful — improving efficiency, removing
+      friction, and creating value that people feel.
+    </p>
+    <p style="margin-top:10px;">
+      But engineering is only half of who I am. I think like a
+      <span class="accent">founder</span>. I'm constantly scanning the market for the critical
+      gap worth building around — the problem that can grow from a side project into a company
+      with lasting industry impact.
+    </p>
+  </section>
+
+  <!-- ── EXPERIENCE ───────────────────────── -->
+  <section class="section">
+    <div class="section-label">Experience & Education</div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h3>Freelance Software Engineer</h3>
+        <div class="meta">Marrakech, Morocco &nbsp;·&nbsp; Current</div>
+        <p>Building scalable, AI-powered applications for clients across enterprise and startup
+        environments. Focused on full-stack development and intelligent automation using modern
+        frameworks and LLM tooling.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h3>Software Engineering Intern — Office National Des Aéroports (ONDA)</h3>
+        <div class="meta">Marrakech, Morocco &nbsp;·&nbsp; Previous</div>
+        <p>Designed AI-powered applications to optimize real-time passenger experiences
+        at Moroccan airports. Built <strong style="color:#f1f5f9">FLYMATE</strong>,
+        an intelligent chatbot using LangChain and LangGraph agents.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h3>Engineering Degree — Computer Science & Networks</h3>
+        <div class="meta">EMSI Marrakech &nbsp;·&nbsp; Graduated</div>
+        <p>Specialized in software architecture, networks, and distributed systems.
+        Built a strong foundation from Technician diploma through to full Engineering degree,
+        with continuous project-based learning throughout.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROJECTS ──────────────────────────── -->
+  <section class="section">
+    <div class="section-label">Featured Projects</div>
+    <div class="two-col">
+
+      <div class="card">
+        <h3>InciFlow</h3>
+        <div class="sub">Incident Management System</div>
+        <p>Enterprise-grade ITSM platform for Chaabi Lil Iskan. Built with Clean Architecture,
+        .NET REST API, and a fully typed React frontend.</p>
+        <div class="tags">
+          <span class="tag">ASP.NET Core</span>
+          <span class="tag">React</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">SQL Server</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>FLYMATE</h3>
+        <div class="sub">Airport AI Chatbot</div>
+        <p>AI passenger assistant providing real-time flight info, gate queries, and travel
+        support using LangChain agents and multi-platform interfaces.</p>
+        <div class="tags">
+          <span class="tag">LangChain</span>
+          <span class="tag">LangGraph</span>
+          <span class="tag">NestJS</span>
+          <span class="tag">FastAPI</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Codespect</h3>
+        <div class="sub">Low-Code Platform</div>
+        <p>Product-style drag-and-drop builder enabling non-technical users to create
+        workflows and applications visually — no code required.</p>
+        <div class="tags">
+          <span class="tag">React</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Node.js</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>CV Generator</h3>
+        <div class="sub">Resume Builder App</div>
+        <p>Full-stack resume builder with PDF export. Demonstrates versatility by working
+        outside the primary stack.</p>
+        <div class="tags">
+          <span class="tag">Angular</span>
+          <span class="tag">Spring Boot</span>
+          <span class="tag">Java</span>
+          <span class="tag">SQL</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── SKILLS ───────────────────────────── -->
+  <section class="section">
+    <div class="section-label">Technical Toolkit</div>
+    <div class="two-col">
+      <div>
+        <div class="skill-group">
+          <div class="skill-group-label">Backend & Architecture</div>
+          <div class="tags">
+            <span class="tag">ASP.NET Core</span>
+            <span class="tag">Java / Spring Boot</span>
+            <span class="tag">NestJS</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">REST APIs</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Frontend & Mobile</div>
+          <div class="tags">
+            <span class="tag">React</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Angular</span>
+            <span class="tag">TailwindCSS</span>
+            <span class="tag">Flutter</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="skill-group">
+          <div class="skill-group-label">AI & Data</div>
+          <div class="tags">
+            <span class="tag">LangChain</span>
+            <span class="tag">LangGraph</span>
+            <span class="tag">Oracle SQL</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">SQL Server</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">DevOps & Tools</div>
+          <div class="tags">
+            <span class="tag">Docker</span>
+            <span class="tag">Linux</span>
+            <span class="tag">Git</span>
+            <span class="tag">CI/CD</span>
+            <span class="tag">PHP</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── VISION ───────────────────────────── -->
+  <section class="section">
+    <div class="section-label">The Vision</div>
+    <div class="vision-block">
+      <blockquote>
+        "I don't just want a job — I want to create value. I'm looking for the right problem,
+        the one worth building a company around."
+      </blockquote>
+      <p>
+        While I am a Software Engineer by trade, I am an entrepreneur at heart. My mission is
+        to identify critical gaps in the market and build robust software solutions that evolve
+        into independent, thriving companies. I am driven by the goal of turning innovative
+        ideas into a legacy — not just a career.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ───────────────────────────── -->
+  <footer class="footer">
+    <span>Hamza Benrahhou &nbsp;·&nbsp; Marrakech, Morocco &nbsp;·&nbsp; 2025</span>
+    <a href="https://hamza007-pro.github.io/personal-website" target="_blank">
+      🌐 hamza007-pro.github.io/personal-website
+    </a>
+  </footer>
+
+</div>
+</body>
+</html>
